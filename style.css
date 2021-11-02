@@ -1,0 +1,77 @@
+@font-face{
+    src:url('Andromeda.otf');
+    font-family:Andromeda;
+}
+:root{
+    font-size:20px;
+    --triangle-width:500px;
+    --triangle-height:500px;
+    --triangle-child-height:160px;
+    --margin:calc((var(--triangle-height) -  (var(--triangle-child-height) * 3)) / 2);
+    --transition:1s ease-in-out;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font:1.5rem Andromeda;
+}
+#magicDoer{
+    width:var(--triangle-width);
+    height:auto;
+    overflow: hidden;
+    
+    clip-path:polygon(50% 0%,100% 100%,0% 100%);
+    transition: 1s;
+}
+#magicDoer:hover{
+    height:var(--triangle-height);
+    color:#fff;
+}
+#magicDoer:hover #triangle1{
+    color:#fff;
+}
+#magicDoer:hover #triangle2{
+    top:calc(var(--triangle-child-height) + var(--margin));
+    background-color:green;
+    color:#fff
+}
+#magicDoer:hover #triangle3{
+    top:calc((var(--triangle-child-height) + var(--margin))* 2);
+    background-color:blue;
+    color:#fff
+}
+#original{
+    width:var(--triangle-width);
+    height:var(--triangle-height);
+    clip-path:polygon(50% 0%,100% 100%,0% 100%);
+}
+.triangle{
+    width:var(--triangle-width);
+    height:var(--triangle-child-height);
+    background-color:red;
+    margin-bottom: var(--margin);
+    text-align:center;
+    line-height:calc(var(--triangle-child-height) + 1.4rem);
+    position:absolute;
+    top:0;
+    left:0;
+}
+#triangle1{
+    transition:0.9s;
+    color:rgba(255, 255, 255, 0);
+    z-index:3;
+}
+#triangle2{
+    color:rgba(255, 255, 255, 0);
+    background:red;
+    z-index:1;
+    transition:var(--transition);
+}
+#triangle3{
+    color:rgba(255, 255, 255, 0);
+    margin:0;
+    background:red;
+    transition:var(--transition);
+    z-index:2;
+}
